@@ -17,10 +17,17 @@ export function ColorBox(props)
         props.setColor(colorValue);
     }
 
+    const determineLabel = (i) => (i === 0) ? 'Red' : ((i === 1) ? 'Green' : 'Blue');
+    const backgroundColor = (i) => (i === 0) ? `rgb(${props.color[0]}, 0, 0)` : ((i === 1) ? `rgb(0, ${props.color[1]}, 0)` : `rgb(0, 0, ${props.color[2]}`);
+    
+    const label = determineLabel(props.id);
+    const boxBackground = {background : backgroundColor(props.id)};
+
     return (
+        
         <div className="colorPickerBox" >
-            <label htmlFor={props.colorLabel}>{props.colorLabel}</label>
-            <div className="colorBox" id={props.colorLabel} style={props.backgroundColor} onWheel={handleWheel}>
+            <label htmlFor={label}>{label}</label>
+            <div className="colorBox" id={label} style={boxBackground} onWheel={handleWheel}>
                 <h4>{props.color[props.id]}</h4>
             </div>
         </div>

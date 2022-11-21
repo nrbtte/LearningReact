@@ -18,30 +18,22 @@ export function AppWindow()
         }
     }
 
-    const removeFromPalet = removeColor =>
-    {
-        setSavedToPalet((existingValues) => existingValues.filter(item => item !== removeColor));
-    }
-
+    const removeFromPalet = removeColor => setSavedToPalet((existingValues) => existingValues.filter(item => item !== removeColor));
+        
     const pickSavedColor = pickedColor => setColor(pickedColor);
 
     const clearAll = () => setSavedToPalet([]);
   
-    const displayRGBPickers = val => {
-        const label = (val === 0) ? 'Red' : ((val === 1) ? 'Green' : 'Blue')
-        const boxBackground = (val === 0) ? `rgb(${color[0]}, 0, 0)` : ((val === 1) ? `rgb(0, ${color[1]}, 0)` : `rgb(0, 0, ${color[2]}`);
+    const displayRGBPickers = val => 
+    {
         return (<ColorBox 
+                    id={val}
                     color={color}
                     setColor={setColor} 
-                    colorLabel={label} 
-                    backgroundColor={{ background: boxBackground }} 
-                    id={val}
                 />);
     }
 
-    const displayResultValue = () => `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-
-    const displaySavedPalet = () => {
+    const displayPalet = () => {
         return (
                 <ColorPalet 
                     savedColors={savedToPalet} 
@@ -61,8 +53,7 @@ export function AppWindow()
             </div>
             <div className="resultDisplay">
                 <ResultBox 
-                    pickedColor={displayResultValue()} 
-                    backgroundColor={{ background: displayResultValue() }} 
+                    color={color} 
                 />
             </div>
             <br />
@@ -71,7 +62,7 @@ export function AppWindow()
                     saveToPalet={() => addToPalet(color)} 
                 />
             </div>
-            { savedToPalet.length > 0  && displaySavedPalet() }
+            { savedToPalet.length > 0  && displayPalet() }
             <br />
         </div>
     );
