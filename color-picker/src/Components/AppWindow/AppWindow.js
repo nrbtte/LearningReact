@@ -5,20 +5,10 @@ import { SaveButton } from "../Save/Save"
 import { ColorPalet } from '../ColorPalet/ColorPalet';
 
 
-export function AppWindow() {
+export function AppWindow() 
+{
     const [colors, setColors] = useState(Array(3).fill(0))
     const [colorHistory, setColorHistory] = useState([]);
-
-    const handleWheel = (i, event) => {
-        const newColor = colors.slice();
-        if (event.deltaY < 0 && newColor[i] < 255) {
-            newColor[i]++;
-        }
-        else if (event.deltaY > 0 && newColor[i] > 0) {
-            newColor[i]--;
-        }
-        setColors(newColor)
-    }
 
     const addToPalet = newColor =>
     {
@@ -41,10 +31,11 @@ export function AppWindow() {
         const label = (val === 0) ? 'Red' : ((val === 1) ? 'Green' : 'Blue')
         const boxBackground = (val === 0) ? `rgb(${colors[0]}, 0, 0)` : ((val === 1) ? `rgb(0, ${colors[1]}, 0)` : `rgb(0, 0, ${colors[2]}`);
         return (<ColorBox 
-                    value={colors[val]} 
+                    color={colors}
+                    setColor={setColors} 
                     colorLabel={label} 
                     backgroundColor={{ background: boxBackground }} 
-                    onWheel={(e) => handleWheel(val, e)} 
+                    id={val}
                 />);
     }
 
