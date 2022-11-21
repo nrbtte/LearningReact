@@ -1,0 +1,32 @@
+.colorPickerBox
+{
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    margin: 10px 10px 20px;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+}
+
+.colorBox
+{
+    width: 200px;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+}
+
+
+label
+{
+    font-size: 15px;
+    color: black;
+}
+
+

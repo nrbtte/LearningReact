@@ -1,0 +1,11 @@
+.result
+{
+    display: inline-block;
+    width: 1580px;
+    height: 300px;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    margin-top: 10px ;
+}

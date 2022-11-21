@@ -1,0 +1,20 @@
+.savedColor
+{
+    width: 100px;
+    height: 100px;
+    margin: 5px 10px;
+    display: inline-block;
+    color: white;
+}
+
+.SavedColorPalet
+{
+    width: 1580px;
+    display: inline-block;
+}
+
+.clearAll{
+    margin-top: 20px;
+    width: 200px;
+    height: 30px;
+}
