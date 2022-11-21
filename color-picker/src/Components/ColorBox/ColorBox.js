@@ -3,19 +3,18 @@ import './ColorBox.css';
 
 export function ColorBox(props)
 {
-
     const handleWheel = (event) =>
     {
-        let newColorValue = props.color.slice();
+        let colorValue = props.color.slice();
         let i = props.id;
-        if (event.deltaY < 0 && newColorValue[i] < 255) {
-            newColorValue[i]++;
+        if (event.deltaY < 0 && colorValue[i] < 255) {
+            colorValue[i]++;
         }
-        else if (event.deltaY > 0 && newColorValue[i] > 0) 
+        else if (event.deltaY > 0 && colorValue[i] > 0) 
         {
-            newColorValue[i]--;
+            colorValue[i]--;
         }
-        props.setColor(newColorValue);
+        props.setColor(colorValue);
     }
 
     return (
